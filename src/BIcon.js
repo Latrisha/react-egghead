@@ -1,8 +1,8 @@
-var React  = require('react');
-var joinClasses = require( 'react/lib/joinClasses' );
+import React from 'react';
+import joinClasses from 'react/lib/joinClasses';
 
-var BIcon = React.createClass({
-    render: function() {
+export default class BIcon extends React.Component{
+    render() {
         var className = this.props;
         return(
             <div>
@@ -10,6 +10,4 @@ var BIcon = React.createClass({
             </div>
         );
     }
-});
-
-module.exports = BIcon;
+}

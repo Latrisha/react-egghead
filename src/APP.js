@@ -1,44 +1,29 @@
-var React  = require('react');
-var joinClasses = require( 'react/lib/joinClasses' );
-var Slider = require('./Slider');
-var BButton = require('./BButton');
-var BIcon = require('./BIcon');
+import React from 'react';
+import joinClasses from 'react/lib/joinClasses';
+import Slider from './Slider';
+import BButton from './BButton';
+import BIcon from './BIcon';
 
 
-var APP = React.createClass({
+export default  class APP extends React.Component{
 
-    getDefaultProps: function(){
-        return {
-            txt:'dsfsdsd',
-            cat:0
-        }
-    },
 
-    getInitialState: function(){
-        return {
+    constructor(props){
+        super(props);
+        this.state = {
             red: 0,
             green: 0,
             blue: 0
-        }
+        };
+    }
+    update(e){
 
-    },
+    }
 
-    propTypes: {
-        txt:React.PropTypes.string,
-        cat:React.PropTypes.number.isRequired
-    },
-
-    update: function(e){
-        this.setState({
-            red:this.refs.red.refs.range.getDOMNode().value,
-            green:this.refs.green.refs.range.getDOMNode().value,
-            blue:this.refs.blue.refs.range.getDOMNode().value
-        })
-    },
-    render: function(){
-
+    render(){
         return (
             <div>
+                {this.props.txt}
                 <BButton href="javascript:alert('hello')" className="btn-primary">
                     <BIcon className="glyphicon-heart"/> Button
                 </BButton>
@@ -59,12 +44,19 @@ var APP = React.createClass({
             </div>
         );
     }
-});
+};
 
-module.exports = APP;
+APP.propTypes = {
+    txt:React.PropTypes.string,
+    cat:React.PropTypes.number.isRequired
+};
 
+APP.defaultProps = {
+    txt:'dsfsdsd',
+    cat:0
+};
 
 React.render(
-    <APP cat={5} txt="er"/>,
+    <APP cat={5}/>,
     document.body
 );

@@ -1,13 +1,12 @@
-var React  = require('react');
-var joinClasses = require( 'react/lib/joinClasses' );
+import React from 'react';
+import joinClasses from 'react/lib/joinClasses';
 
-var BButton = React.createClass({
-    render: function() {
+export default class BButton extends React.Component{
+    render() {
         var className = this.props;
         return(
             <a className={joinClasses(className, "btn")}>{this.props.children}</a>
         );
     }
-});
+}
 
-module.exports = BButton;

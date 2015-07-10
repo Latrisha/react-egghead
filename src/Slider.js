@@ -1,12 +1,9 @@
-var React  = require('react');
-var joinClasses = require( 'react/lib/joinClasses' );
+import React from 'react';
 
-var Slider = React.createClass({
-    render: function() {
+export default class Slider extends React.Component{
+    render() {
         return(
             <input ref="range" type="range" min="0" max="255" onChange={this.props.update}></input>
         );
     }
-});
-
-module.exports = Slider;
+}
