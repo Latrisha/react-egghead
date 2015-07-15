@@ -3,9 +3,8 @@ import joinClasses from 'react/lib/joinClasses';
 
 export default class BButton extends React.Component{
     render() {
-        var className = this.props;
         return(
-            <a className={joinClasses(className, "btn")}>{this.props.children}</a>
+            <a href={this.props.href} className={joinClasses(this.props.className, "btn")}>{this.props.children}</a>
         );
     }
 }

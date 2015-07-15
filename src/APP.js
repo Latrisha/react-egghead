@@ -15,15 +15,21 @@ export default  class APP extends React.Component{
             green: 0,
             blue: 0
         };
+        this.update = this.update.bind(this);
     }
     update(e){
+        this.setState({
+            red: React.findDOMNode(this.refs.red.refs.range).value,
+            green: React.findDOMNode(this.refs.green.refs.range).value,
+            blue: React.findDOMNode(this.refs.blue.refs.range).value
+        });
 
     }
 
     render(){
         return (
             <div>
-                {this.props.txt}
+                <h1>{this.props.txt}</h1>
                 <BButton href="javascript:alert('hello')" className="btn-primary">
                     <BIcon className="glyphicon-heart"/> Button
                 </BButton>
@@ -33,14 +39,12 @@ export default  class APP extends React.Component{
                 <BButton className="btn-danger">
                     <BIcon className="glyphicon-inbox"/> Button
                 </BButton>
-                {this.state.txt}
                 <hr/>
-                <Slider ref="red" update={this.update}/>
-                <label>{this.state.red}</label>
-                <Slider ref="green" update={this.update}/>
-                <label>{this.state.green}</label>
-                <Slider ref="blue" update={this.update}/>
-                <label>{this.state.blue}</label>
+                <Slider ref="red" update={this.update} label={this.state.red} type='range' min={0} max={255} defaultVal={0} />
+                <br/>
+                <Slider ref="green" update={this.update} label={this.state.green} type='range' min={0} max={255} defaultVal={0} />
+                <br/>
+                <Slider ref="blue" update={this.update} label={this.state.blue} type='range' min={0} max={255} defaultVal={0} />
             </div>
         );
     }
@@ -57,6 +61,6 @@ APP.defaultProps = {
 };
 
 React.render(
-    <APP cat={5}/>,
+    <APP cat={10}/>,
     document.body
 );
