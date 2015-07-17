@@ -3,6 +3,7 @@ import joinClasses from 'react/lib/joinClasses';
 import Slider from './Slider';
 import BButton from './BButton';
 import BIcon from './BIcon';
+import Table from './Table';
 
 
 export default  class APP extends React.Component{
@@ -40,11 +41,12 @@ export default  class APP extends React.Component{
                     <BIcon className="glyphicon-inbox"/> Button
                 </BButton>
                 <hr/>
-                <Slider ref="red" update={this.update} label={this.state.red} type='range' min={0} max={255} defaultVal={0} />
+                <Slider ref="red" update={this.update} label={'Red: ' + this.state.red} type='range' min={0} max={255} defaultVal={0} />
                 <br/>
-                <Slider ref="green" update={this.update} label={this.state.green} type='range' min={0} max={255} defaultVal={0} />
+                <Slider ref="green" update={this.update} label={'Green: ' + this.state.green} type='range' min={0} max={255} defaultVal={0} />
                 <br/>
-                <Slider ref="blue" update={this.update} label={this.state.blue} type='range' min={0} max={255} defaultVal={0} />
+                <Slider ref="blue" update={this.update} label={'Blue: ' + this.state.blue} type='range' min={0} max={255} defaultVal={0} />
+                <Table />
             </div>
         );
     }
