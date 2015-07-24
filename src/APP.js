@@ -4,7 +4,7 @@ import Slider from './Slider';
 import BButton from './BButton';
 import BIcon from './BIcon';
 import Table from './Table';
-
+import AppActions from './actions/actions';
 
 export default  class APP extends React.Component{
 
@@ -26,7 +26,9 @@ export default  class APP extends React.Component{
         });
 
     }
-
+    handleClick(){
+        AppActions.addItem('kuku');
+    }
     render(){
         return (
             <div>
@@ -34,14 +36,14 @@ export default  class APP extends React.Component{
                 <BButton href="javascript:alert('hello')" className="btn-primary">
                     <BIcon className="glyphicon-heart"/> Button
                 </BButton>
-                <BButton className="btn-success">
+                <BButton onClick={this.handleClick} className="btn-success">
                     <BIcon className="glyphicon-pencil"/> Button
                 </BButton>
                 <BButton className="btn-danger">
                     <BIcon className="glyphicon-inbox"/> Button
                 </BButton>
                 <hr/>
-                <Slider ref="red" update={this.update} label={'Red: ' + this.state.red} type='range' min={0} max={255} defaultVal={0} />
+                <Slider ref="red" update={this.update} label={'Red: '+ this.state.red} type='range' min={0} max={255} defaultVal={0} />
                 <br/>
                 <Slider ref="green" update={this.update} label={'Green: ' + this.state.green} type='range' min={0} max={255} defaultVal={0} />
                 <br/>
@@ -58,7 +60,7 @@ APP.propTypes = {
 };
 
 APP.defaultProps = {
-    txt:'dsfsdsd',
+    txt:'hurma',
     cat:0
 };
 
@@ -66,3 +68,4 @@ React.render(
     <APP cat={10}/>,
     document.body
 );
+
